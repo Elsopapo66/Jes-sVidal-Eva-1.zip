@@ -1,0 +1,366 @@
+/* Estilos para los botones */
+button {
+    margin: 10px 0;
+    position: relative;
+    padding: 15px 15px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: .5s;
+    overflow: hidden;
+}
+
+button:hover {
+    color: #fff;
+}
+
+button span {
+    position: absolute;
+    background: white;
+    transition: .5s;
+}
+
+button span:nth-child(1) {
+    width: 100%;
+    height: 1px;
+    top: 0;
+    left: -100%;
+}
+
+button span:nth-child(2) {
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    right: -100%;
+}
+
+button span:nth-child(3) {
+    width: 1px;
+    height: 100%;
+    bottom: -100%;
+    left: 0;
+}
+
+button span:nth-child(4) {
+    width: 1px;
+    height: 100%;
+    top: -100%;
+    right: 0;
+}
+
+button:hover span:nth-child(1) {
+    left: 0;
+}
+
+button:hover span:nth-child(2) {
+    right: 0;
+}
+
+button:hover span:nth-child(3) {
+    bottom: 0;
+}
+
+button:hover span:nth-child(4) {
+    top: 0;
+}
+
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos para la barra de navegación */
+header {
+    background: linear-gradient(to right, hsl(227, 95%, 40%), hsl(301, 97%, 48%), hsl(318, 95%, 40%));
+    color: #fff;
+    padding: 10px;
+}
+
+.navbar {
+    position: relative; /* Añadimos posicionamiento relativo para que los elementos absolutos se posicionen con respecto a la barra de navegación */
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+.search-bar input {
+    padding: 5px;
+    margin-right: 5px;
+    width: 200px;
+}
+
+/* Estilos para la sección de eventos y los destacados */
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.events {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.event {
+    position: relative;
+}
+
+.event img {
+    max-width: 100%;
+    height: 200px;
+    transition: transform 0.3s ease;
+    max-width: 260px; 
+    display: block; 
+    margin: 0 auto; 
+}
+
+.event img:hover {
+    transform: scale(1.1);
+}
+
+.event p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: grey;
+    padding: 10px;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.event:hover p {
+    opacity: 1;
+}
+
+.highlights {
+    background-color: #eee;
+    padding: 20px;
+}
+
+.highlights h2 {
+    margin-bottom: 10px;
+    color: purple;
+    text-align: center;
+}
+
+.highlights ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.highlights li {
+    margin-bottom: 5px;
+}
+
+.highlights img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.highlights img:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para el slider de promociones */
+.slider-promocion {
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    width: 100%;
+    height: 220px; /* Aumentamos la altura un poco */
+}
+
+.slider {
+    display: flex;
+    width: 300%;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    width: calc(100% / 2);
+    position: relative;
+}
+
+.slide img {
+    width: 95%;
+    height: 80%; /* Ajustamos la altura del rectángulo promocional */
+    object-fit: cover;
+}
+
+/* Botones de navegación del slider */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* Sacar los botones de radio */
+.slider-promocion input[type="radio"] {
+    display: none;
+}
+
+/* Control de cambio de imagen */
+#slide1:checked ~ .slider {
+    transform: translateX(0%);
+}
+
+#slide2:checked ~ .slider {
+    transform: translateX(-33%);
+}
+
+#slide3:checked ~ .slider {
+    transform: translateX(-70%);
+}
+
+.ver-mas-btn {
+    position: absolute;
+    top: 50%; /* Centramos verticalmente */
+    left: 50px; /* Lo movemos hacia la izquierda */
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: #fff;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.slider .slide {
+    position: relative;
+}
+
+.slider .slide .ver-mas-btn {
+    z-index: 2;
+}
+
+.ver-mas-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Estilos para el footer */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.footer-logo img {
+    width: 120px; /* Ajustar el tamaño del logo */
+    height: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 240px); /* Espacio para el logo y los botones */
+}
+
+.footer-section {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    margin: 5px 0;
+}
+
+.footer-buttons button {
+    margin-left: 10px;
+}
+
+.footer-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 14px; /* Reducir el tamaño del texto */
+}
+
+.footer-text a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-bottom: 3px; /* Reducir el espaciado entre los enlaces */
+}
+
+.footer-text a:hover {
+    color: gray;
+}
+
+/* Media queries para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+    /* Aquí van los estilos específicos para dispositivos móviles */
+    .navbar {
+        grid-template-columns: auto;
+    }
+    .logo img {
+        width: 80px;
+    }
+    .search-bar input {
+        width: 150px;
+    }
+    
+
+}
+
+.textos-arriba {
+    position: absolute; /* Posicionamiento absoluto */
+    top: -10px; /* Lo colocamos arriba de la barra de navegación */
+    left: 20px; /* Ajustamos el espaciado */
+    color: #fff; /* Color del texto */
+}
+
+.textos-arriba span {
+    margin-right: 20px; /* Espaciado entre los textos */
+}
+.textos-arriba a {
+    text-decoration: none; /* Eliminar subrayado */
+    color: inherit; /* Utilizar el color del texto padre (blanco en este caso) */
+}
